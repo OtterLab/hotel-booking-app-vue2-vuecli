@@ -17,7 +17,7 @@
     <!------ Logout button ------->
     <template v-slot:append>
       <div class="pa-2">
-        <v-btn block>
+        <v-btn block class="logout-btn-gradient">
           Logout
         </v-btn>
       </div>
@@ -44,15 +44,16 @@
 </template>
 
 <style scoped>
-/* .splash-image {
-  background-image: url('./assets/images/the_anam_resort.png');
-  background-size: cover;
-  background-repeat: none;
-  background-position: center center;
-  height: 100%;
-} */
+div.container.container--fluid {
+  padding: 0; /* remove padding div container for all pages */
+}
+
 .logo-img {
   margin: 0 auto;
+}
+
+.logout-btn-gradient {
+  background-image: linear-gradient(150deg, #1976D2, #1E88E5, #64B5F6);
 }
 </style>
 
@@ -63,12 +64,12 @@ export default {
     return {
       drawer: null,
       navLinkItems: [
-        { title: 'Welcome', icon: 'mdi-view-dashboard' },
-        { title: 'My Bookings', icon: 'mdi-clipboard-list' },
-        { title: 'My Rooms', icon: 'mdi-room-service' },
-        { title: 'Admin', icon: 'mdi-shield-account' },
-        { title: 'Login', icon: 'mdi-account' },
-        { title: 'Register', icon: 'mdi-account-plus' },
+        { title: 'Welcome', icon: 'mdi-view-dashboard', to: '/welcome' },
+        { title: 'My Bookings', icon: 'mdi-clipboard-list', to: '/my_bookings' },
+        { title: 'My Rooms', icon: 'mdi-room-service', to: '/my_rooms' },
+        { title: 'Admin', icon: 'mdi-shield-account', to: '/admin_page' },
+        { title: 'Login', icon: 'mdi-account', to: '/' },
+        { title: 'Register', icon: 'mdi-account-plus', to: '/register' },
       ]
     }
   }
