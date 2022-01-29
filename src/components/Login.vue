@@ -17,7 +17,7 @@
                 </div>
             </v-form>
             <div class="quick-link-content">
-                <p class="quick-link-text mb-1">If not a member?<v-btn small text color="blue darken-3" to="/register">Register</v-btn></p>
+                <p class="quick-link-text mb-1">If not a member?<v-btn small text color="blue darken-2" to="/register">Register</v-btn></p>
             </div>
         </v-card>
     </v-container>

@@ -1,24 +1,50 @@
-# hotel-booking-app
+## Hotel Booking App
+A hotel booking system for customers to make reservations on the go and skip the queue. 
+Customers can manage their booking details using the app.
 
-## Project setup
+### Project setup
 ```
-npm install
+npm install -g @vue/cli
+
+git clone https://github.com/OtterLab/hotel-booking-app.git
+
+cd hotel-booking-app
+
+install dependencies
+
+npm run dev
 ```
 
-### Compiles and hot-reloads for development
+### Create Vue App
+Vue.js link: https://cli.vuejs.org/ <br>
+
+Install
 ```
-npm run serve
+npm install -g @vue/cli
+```
+Create a Project
+```
+vue create my-app
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### Dependencies for Frontend App
+- node
+- @vue/cli
+- vue
+- vue-router
+- vuetify
+- vuex
+- eslint
+- axios
+- express
+- serve-static
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Vue Command CLI
+| Vue Commands | Syntax   |
+| ------------ | -------- |
+| compiles for development | npm run serve |
+| build production | npm run build |
+| lints | npm run lint |
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
