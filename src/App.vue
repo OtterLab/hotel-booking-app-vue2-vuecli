@@ -55,6 +55,10 @@ div.container.container--fluid {
 .logout-btn-gradient {
   background-image: linear-gradient(150deg, #1976D2, #1E88E5, #64B5F6);
 }
+
+.dark_theme_btn {
+  padding-left: 20px;
+}
 </style>
 
 <script>
@@ -69,7 +73,7 @@ export default {
         { title: 'My Rooms', icon: 'mdi-room-service', to: '/my_rooms' },
         { title: 'Admin', icon: 'mdi-shield-account', to: '/admin_page' },
         { title: 'Login', icon: 'mdi-account', to: '/' },
-        { title: 'Register', icon: 'mdi-account-plus', to: '/register' },
+        { title: 'Register', icon: 'mdi-account-plus', to: '/register' }
       ]
     }
   }

@@ -4,7 +4,6 @@ import Register from '@/components/Register.vue'
 import Login from '@/components/Login.vue'
 import UpdateUserAccount from '@/components/UpdateUserAccount.vue'
 import AdminPage from '../views/AdminPage.vue'
-import MyProfile from '../views/MyProfile.vue'
 import CreateBooking from '../views/CreateBooking.vue'
 import CreateRoom from '../views/CreateRoom.vue'
 import MyBookings from '../views/MyBookings.vue'
@@ -35,11 +34,6 @@ const routes = [
     path: '/admin_page',
     name: 'admin-page',
     component: AdminPage
-  },
-  {
-    path: '/my_profile',
-    name: 'my-profile',
-    component: MyProfile
   },
   {
     path: '/create_booking',
