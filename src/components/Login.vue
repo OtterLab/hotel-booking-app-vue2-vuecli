@@ -1,11 +1,14 @@
 <template>
 <div class="login image-bg">
+    <!----- Loading Spinner ------>
+    <Loading v-if="loading"/>
+    
     <v-container>
         <v-card class="v-card-content pa-1">
             <v-card-title class="font-weight-bold">Login</v-card-title>
 
             <!----- Alert messages ------>
-            <v-alert dense type="success" class="alert-message" v-if="alertToggle == true">Login Successfully</v-alert>
+            <v-alert dense type="success" class="alert-message" v-if="alertToggle == 'success'">Login Successfully</v-alert>
             <v-alert dense type="error" class="alert-message" v-if="alertToggle == 'error'">Incorrect email or password</v-alert>
 
             <v-form method="POST" ref="form" v-model="valid" lazy-validation @submit.prevent="login">
@@ -31,7 +34,7 @@
 
 <style scoped>
 .v-card-content {
-    top: 50px;
+    top: 58px;
 }
 
 .image-bg {
@@ -71,6 +74,7 @@
 
 <script>
 import axios from 'axios'
+import Loading from '@/components/Loading'
 
 export default {
     data() {
@@ -90,10 +94,13 @@ export default {
                 ],
             },
             valid: true,
-            alertToggle: 'none'
+            alertToggle: 'none',
+            loading: false
         }
     },
 
+    components: { Loading },
+    
     methods: {
         validate() {
             this.$refs.form.validate();
@@ -109,9 +116,11 @@ export default {
                 // store login data in localStorage
                 localStorage.setItem('logged_in_user', JSON.stringify(response.data));
                 localStorage.setItem('token', response.data.token);
-                this.alertToggle = true;
+                this.alertToggle = 'success';
+                this.loading = true;
 
                 setTimeout(() => {
+                    this.loading = false;
                     this.alertToggle = 'none';
                     this.$router.push({name: 'welcome'});
                 }, 2000);
@@ -119,6 +128,7 @@ export default {
             .catch((error) => {
                 console.log(error);
                 this.alertToggle = 'error';
+                this.loading = false;
             });
         }
     }

@@ -17,7 +17,7 @@
     <!------ Logout button ------->
     <template v-slot:append>
       <div class="pa-2">
-        <v-btn block class="logout-btn-gradient">
+        <v-btn block class="logout-btn-gradient" @click.prevent="logout">
           Logout
         </v-btn>
       </div>
@@ -38,6 +38,10 @@
 
       <!-- If using vue-router -->
       <router-view></router-view>
+
+      <!----- Alert messages ------>
+      <v-alert dense type="success" class="alert-message" v-if="alertToggle == true">User logout successfully</v-alert>
+      <v-alert dense type="error" class="alert-message" v-if="alertToggle == false">Unable to logout</v-alert>
     </v-container>
   </v-main>
 </v-app>
@@ -59,9 +63,17 @@ div.container.container--fluid {
 .dark_theme_btn {
   padding-left: 20px;
 }
+
+.alert-message {
+  top: 15px;
+  margin-left: 13px;
+  margin-right: 13px;
+}
 </style>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'App',
   data() {
@@ -74,7 +86,30 @@ export default {
         { title: 'Admin', icon: 'mdi-shield-account', to: '/admin_page' },
         { title: 'Login', icon: 'mdi-account', to: '/' },
         { title: 'Register', icon: 'mdi-account-plus', to: '/register' }
-      ]
+      ],
+      alertToggle: "none"
+    }
+  },
+
+  methods: {
+    logout() {
+      axios.get('http://localhost:8000/api/auth/logout', {
+        headers: {
+          "Authorization": "Bearer " + localStorage.getItem('token')
+        }
+      })
+      .then((response) => {
+        console.log(response);
+        this.alertToggle = true;
+        localStorage.removeItem('logged_in_user');
+        localStorage.removeItem('token');
+        this.$router.push({name: 'login'});
+      })
+      .catch((error) => {
+        this.alertToggle = false;
+        this.$router.push({name: 'login'});
+        console.log(error);
+      });
     }
   }
 }

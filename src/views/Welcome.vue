@@ -2,10 +2,10 @@
 <div class="welcome welcome-bg-image">
     <v-container>
         <v-card class="pa-1">
-            <p class="v-card-subtitle pl-4 pt-3 mb-0 font-weight-light">Welcome to Royal Shoreline Hotel!</p>
-            <div>
-                <!-- <v-card-title class="pt-0">Hi, {{authUser.fullname}} </v-card-title>
-                <v-card-title class="pt-0">Email {{authUser.email}} </v-card-title> -->
+            <p class="v-card-subtitle pl-4 pt-3 mb-0 font-weight-regular">Welcome to Royal Shoreline Hotel!</p>
+            <div class="is_loggedin_info" v-if="authUser">
+                <v-card-subtitle class="pb-0 font-weight-medium">Hi, {{authUser.fullname}} </v-card-subtitle>
+                <v-card-subtitle class="pt-2 font-weight-medium">Email, {{authUser.email}} </v-card-subtitle>
             </div>
         </v-card>
 
@@ -56,7 +56,7 @@
 </style>
 
 <script>
-//import axios from 'axios'
+import axios from 'axios'
 
 export default {
     data() {
@@ -67,8 +67,22 @@ export default {
                 { src: require('@/assets/images/hotel_resort_villa.png') },
                 { src: require('@/assets/images/siem_reap_outdoor_resort.png') }
             ],
-            error: null
+            authUser: []
         }
+    },
+
+    created() {
+        axios.get('http://localhost:8000/api/auth/getAuthUser', {
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem('token')
+            }
+        })
+        .then((response) => {
+            this.authUser = response.data;
+        })
+        .catch((error) => {
+            console.log(error);
+        });
     }
 }
 </script>
