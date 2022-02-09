@@ -1,6 +1,6 @@
 <template>
 <v-app>
-  <!------- navigation drawer -------->
+  <!---- navigation drawer ---->
   <v-navigation-drawer app v-model="drawer" class="blue-grey darken-3" dark>
     <v-list dense>
       <v-list-item v-for="item in navLinkItems" :key="item.title" :to="item.to" link>
@@ -14,7 +14,7 @@
       </v-list-item>
     </v-list>
 
-    <!------ Logout button ------->
+    <!---- Logout button ---->
     <template v-slot:append>
       <div class="pa-2">
         <v-btn block class="logout-btn-gradient" @click.prevent="logout">
@@ -24,7 +24,7 @@
     </template>
   </v-navigation-drawer>
 
-  <!----- app bar ----->
+  <!---- app bar ---->
   <v-app-bar app flat color="blue-grey darken-3">
     <v-app-bar-nav-icon color="white" large @click="drawer = true"></v-app-bar-nav-icon>
     <v-img class="logo-img" src="@/assets/royal_shoreline_hotel_logo.svg" min-height="20" max-width="100"></v-img>
@@ -39,7 +39,7 @@
       <!-- If using vue-router -->
       <router-view></router-view>
 
-      <!----- Alert messages ------>
+      <!----Alert messages ---->
       <v-alert dense type="success" class="alert-message" v-if="alertToggle == true">User logout successfully</v-alert>
       <v-alert dense type="error" class="alert-message" v-if="alertToggle == false">Unable to logout</v-alert>
     </v-container>

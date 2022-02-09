@@ -4,7 +4,7 @@
         <v-card class="v-card-content pa-1">
             <v-card-title class="font-weight-bold">Register</v-card-title>
 
-            <!----- Alert messages ------>
+            <!---- Alert messages ---->
             <v-alert dense type="success" class="alert-message" v-if="alertToggle == 'success'">User successfully created</v-alert>
             <v-alert dense type="error" class="alert-message" v-if="alertToggle == 'error'">Please complete required fields</v-alert>
 

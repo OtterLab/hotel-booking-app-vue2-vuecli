@@ -1,13 +1,13 @@
 <template>
 <div class="login image-bg">
-    <!----- Loading Spinner ------>
+    <!---- Loading Spinner ---->
     <Loading v-if="loading"/>
     
     <v-container>
         <v-card class="v-card-content pa-1">
             <v-card-title class="font-weight-bold">Login</v-card-title>
 
-            <!----- Alert messages ------>
+            <!---- Alert messages ---->
             <v-alert dense type="success" class="alert-message" v-if="alertToggle == 'success'">Login Successfully</v-alert>
             <v-alert dense type="error" class="alert-message" v-if="alertToggle == 'error'">Incorrect email or password</v-alert>
 
