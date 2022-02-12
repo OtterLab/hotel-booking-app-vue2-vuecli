@@ -27,7 +27,7 @@
   <!---- app bar ---->
   <v-app-bar app flat color="blue-grey darken-3">
     <v-app-bar-nav-icon color="white" large @click="drawer = true"></v-app-bar-nav-icon>
-    <v-img class="logo-img" src="@/assets/royal_shoreline_hotel_logo.svg" min-height="20" max-width="100"></v-img>
+    <v-img class="logo-img" src="@/assets/royal_shoreline_hotel_logo.svg" max-width="90"></v-img>
   </v-app-bar>
 
   <!-- Sizes your content based upon application components -->

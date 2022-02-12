@@ -4,8 +4,8 @@
         <v-card class="pa-1">
             <p class="v-card-subtitle pl-4 pt-3 mb-0 font-weight-regular">Welcome to Royal Shoreline Hotel!</p>
             <div class="is_loggedin_info" v-if="authUser">
-                <v-card-subtitle class="pb-0 font-weight-medium">Hi, {{authUser.fullname}} </v-card-subtitle>
-                <v-card-subtitle class="pt-2 font-weight-medium">Email, {{authUser.email}} </v-card-subtitle>
+                <v-card-subtitle class="pb-0 font-weight-medium">Hi, {{authUser.fullname}}</v-card-subtitle>
+                <v-card-subtitle class="pt-0 font-weight-medium">Logged In, {{authUser.user_type}}</v-card-subtitle>
             </div>
         </v-card>
 
@@ -36,6 +36,10 @@
                             <div>My Account</div>
                         </v-btn>
                     </div>
+                    <div class="icon-group-btn">
+                        <v-btn text @click="toggle_dark_mode">
+                        <v-icon class="pr-2">mdi-theme-light-dark</v-icon>Dark Mode</v-btn>
+                    </div>
                 </v-row>
             </v-card-text>
         </v-card>
@@ -65,7 +69,7 @@ export default {
                 { src: require('@/assets/images/the_anam_villa_view.png') },
                 { src: require('@/assets/images/resort_outdoor_chair.png') },
                 { src: require('@/assets/images/hotel_resort_villa.png') },
-                { src: require('@/assets/images/siem_reap_outdoor_resort.png') }
+                { src: require('@/assets/images/the_anam_outdoor_resort.png') }
             ],
             authUser: []
         }
@@ -83,6 +87,33 @@ export default {
         .catch((error) => {
             console.log(error);
         });
+    },
+
+    methods: {
+        toggle_dark_mode() {
+            this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+            localStorage.setItem("dark_theme", this.$vuetify.theme.dark.toString());
+        }
+    },
+
+    mounted() {
+        const theme = localStorage.getItem("dark_theme");
+        if (theme) {
+            if (theme === "true") {
+                this.$vuetify.theme.dark = true;
+            } else {
+                this.$vuetify.theme.dark = false;
+            }
+        } else if (
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+            this.$vuetify.theme.dark = true;
+            localStorage.setItem(
+                "dark_theme",
+                this.$vuetify.theme.dark.toString()
+            );
+        }
     }
 }
 </script>
