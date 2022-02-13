@@ -1,0 +1,37 @@
+{
+    "name": "Royal Shoreline Hotel",
+    "short_name": "Royal Shoreline",
+    "start_url": "/",
+    "display": "fullscreen",
+    "background_color": "#0288D1",
+    "theme_color": "#37474F",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "icons/apple-app-icon-72x72.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src": "icons/apple-app-icon-180x180.png",
+            "type": "image/png",
+            "sizes": "180x180"
+        },
+        {
+            "src": "icons/apple-app-icon-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "icons/android-app-icon-96x96.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "icons/android-app-icon-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "any maskable"
+        }
+    ]
+}
