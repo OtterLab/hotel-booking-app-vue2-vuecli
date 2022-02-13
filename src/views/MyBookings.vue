@@ -13,9 +13,8 @@
         
         <v-card class="mt-4" v-for="bookingList in bookingLists" :key="bookingList.id">
             <v-card-text class="pb-2">
-                <div><v-icon small class="pr-2">mdi-room-service</v-icon>{{bookingList.room_id}}</div>
-                <div><v-icon small class="pr-2">mdi-account</v-icon>{{bookingList.user_id}}</div>
-                <div><v-icon small class="pr-2">mdi-room-service</v-icon>{{bookingList.num_of_nights}}</div>
+                <div><v-icon small class="pr-2">mdi-bed</v-icon>{{bookingList.num_of_nights}}</div>
+                <div><v-icon small class="pr-2">mdi-account</v-icon>{{bookingList.num_of_guest}}</div>
                 <div><v-icon small class="pr-2">mdi-calendar</v-icon>{{bookingList.checkInDate}}</div>
                 <div><v-icon small class="pr-2">mdi-calendar</v-icon>{{bookingList.checkOutDate}}</div>
             </v-card-text>

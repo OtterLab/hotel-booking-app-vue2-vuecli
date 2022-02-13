@@ -122,6 +122,7 @@ export default {
             .then((response) => {
                 this.alertToggle = 'success';
                 console.log(response);
+                
                 setTimeout(() => {
                     this.alertToggle = false;
                     this.$router.push({name: 'login'});

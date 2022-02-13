@@ -118,7 +118,7 @@ export default {
                     v => !!v || 'Check-Out Date is required'
                 ],
             },
-            alertToggle: 'none'
+            alertToggle: 'none',
         }
     },
     

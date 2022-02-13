@@ -119,6 +119,7 @@ export default {
       .then((response) => {
         this.alertToggle = 'success';
         console.log(response);
+        localStorage.setItem('room_data', JSON.stringify(response.data));
 
         setTimeout(() => {
           this.alertToggle = 'none';

@@ -18,6 +18,7 @@
         <v-card class="mt-4" v-for="roomList in roomLists" :key="roomList.id">
             <v-card-title class="pt-3 pb-1">{{roomList.roomName}}</v-card-title>
             <v-card-text class="pb-2">
+                <div><v-icon small class="pr-2">mdi-pound-box</v-icon>{{roomList.id}}</div>
                 <div><v-icon small class="pr-2">mdi-room-service</v-icon>{{roomList.roomType}}</div>
                 <div><v-icon small class="pr-2">mdi-star</v-icon>{{roomList.roomRatings}}</div>
                 <div><v-icon small class="pr-2">mdi-currency-usd</v-icon>{{roomList.roomPrice}}</div>
@@ -95,6 +96,7 @@ export default {
             .then((response) => {
                 this.alertToggle = 'success';
                 console.log(response);
+                localStorage.removeItem('room_data');
                 this.showAllRooms();
             })
             .catch((error) => {
